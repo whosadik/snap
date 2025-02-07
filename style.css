@@ -385,12 +385,35 @@ h2 {
       minmax(260px, 1fr)
     ); /* еще меньше колонок */
   }
+  header.active nav {
+    left: 0; /* Меню теперь будет занимать весь экран */
+    width: 100%;
+  }
+  .hamburger {
+    right: 1rem;
+    top: 2rem;
+    position: absolute;
+  }
 }
 
 /* Адаптивность для экранов меньше 480px */
 @media screen and (max-width: 480px) {
+  main {
+    padding-top: 7rem;
+  }
   .video-cards {
-    grid-template-columns: 1fr; /* 1 колонка на мобильных */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    justify-items: center;
+    align-items: start; /* Выравниваем карточки сверху */
+    margin: 20px;
+    padding: 0 1rem;
+  }
+
+  .video-card {
+    width: 100%;
+    height: auto;
   }
 }
 

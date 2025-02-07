@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content=" Intro section with dropdown navigation - Frontend Mentor"
+    />
+    <meta
+      name="keywords"
+      content=" Intro section with dropdown navigation,Frontend Mentor "
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <title>Snap</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <h1>
+        <a href="/">
+          <img src="./images/logo.svg" alt="Snap icon" />
+        </a>
+      </h1>
+      <img
+        class="hamburger"
+        src="./images//icon-menu.svg"
+        alt=""
+        aria-hidden="true"
+      />
+      <nav class="menu">
+        <ul class="nav-menu">
+          <li class="features-btn">
+            <button class="country-btn">
+              Выберите страну
+              <img
+                src="./images/icon-arrow-down.svg"
+                alt=""
+                aria-hidden="true"
+              />
+            </button>
+            <ul class="hidden-features">
+              <li>
+                <a href="#" data-country="Россия">Россия</a>
+              </li>
+              <li>
+                <a href="#" data-country="Великобритания">Великобритания</a>
+              </li>
+              <li>
+                <a href="#" data-country="Франция">Франция</a>
+              </li>
+              <li>
+                <a href="#" data-country="Италия">Италия</a>
+              </li>
+              <li>
+                <a href="#" data-country="Все страны">Все страны</a>
+              </li>
+            </ul>
+          </li>
+          <li class="company-btn"></li>
+
+          <li><a href="/">Главная</a></li>
+          <li><a href="/">О нас</a></li>
+          <li><a href="/">Контакты</a></li>
+        </ul>
+        <ul class="nav-buttons nav-menu">
+          <li><button>Login</button></li>
+          <li><button>Register</button></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <img
+        class="hero"
+        src="./images/image-hero-mobile.png"
+        alt="Man with laptop"
+      />
+      <section class="remote">
+        <section class="remote-information">
+          <h2>Исследуй мир жестов!</h2>
+          <p>
+            Открой для себя уникальные жесты разных культур. Исследуй их
+            значение и улучшай навыки общения без слов!
+          </p>
+          <a class="start-journey">Начать путешествие</a>
+        </section>
+      </section>
+    </main>
+    <section class="video-cards" id="cards-section">
+      <div class="video-card always-visible" data-country="Великобритания">
+        <div class="video-container">
+          <img
+            class="poster"
+            src="preview/11-GB-insult.jpg"
+            alt="Превью видео"
+          />
+          <video class="video" preload="auto" muted>
+            <source src="gestures/11-GB-insult.mp4" type="video/mp4" />
+            Ваш браузер не поддерживает видео.
+          </video>
+        </div>
+        <div class="info">
+          <h3>Великобритания</h3>
+          <p>
+            сильное оскорбление;<br />
+            Отвали!
+          </p>
+        </div>
+      </div>
+
+      <div class="video-card always-visible" data-country="Франция">
+        <div class="video-container">
+          <img
+            class="poster"
+            src="preview/24-FR-Boredom.jpg"
+            alt="Превью видео"
+          />
+          <video class="video" preload="auto" muted>
+            <source src="gestures/24-FR-Boredom.mp4" type="video/mp4" />
+            Ваш браузер не поддерживает видео.
+          </video>
+        </div>
+        <div class="info">
+          <h3>Франция</h3>
+          <p>Описание жеста в России.</p>
+        </div>
+      </div>
+
+      <div class="video-card always-visible" data-country="Италия">
+        <div class="video-container">
+          <img
+            class="poster"
+            src="preview/28-IT-Delicious.jpg"
+            alt="Превью видео"
+          />
+          <video class="video" preload="auto" muted>
+            <source src="gestures/28-IT-Delicious.mp4" type="video/mp4" />
+            Ваш браузер не поддерживает видео.
+          </video>
+        </div>
+        <div class="info">
+          <h3>Италия</h3>
+          <p>Вкусно!</p>
+        </div>
+      </div>
+
+      <!--  -->
+
+      <div class="video-card always-visible" data-country="Россия">
+        <div class="video-container">
+          <img
+            class="poster"
+            src="preview/23-RU-Up for a drink-.jpg"
+            alt="Превью видео"
+          />
+          <video class="video" preload="auto" muted>
+            <source
+              src="gestures/23-RU-Up for a drink- (1).mp4"
+              type="video/mp4"
+            />
+            Ваш браузер не поддерживает видео.
+          </video>
+        </div>
+        <div class="info">
+          <h3>Россия</h3>
+          <p>Хотите выпить?</p>
+        </div>
+      </div>
+      <!--  -->
+      <div class="video-card always-visible" data-country="Великобритания">
+        <div class="video-container">
+          <img
+            class="poster"
+            src="preview/21-GB-Don't be nosy.jpg"
+            alt="Превью видео"
+          />
+          <video class="video" preload="auto" muted>
+            <source src="gestures/21-GB-Don't be nosy.mp4 " type="video/mp4" />
+            Ваш браузер не поддерживает видео.
+          </video>
+        </div>
+        <div class="info">
+          <h3>Великобритания</h3>
+          <p>
+            Не будьте любопытными;<br />
+            это не твое дело
+          </p>
+        </div>
+      </div>
+      <!--  -->
+
+      <div class="video-card always-visible" data-country="Россия">
+        <div class="video-container">
+          <img
+            class="poster"
+            src="preview/17-RU-gloating.jpg"
+            alt="Превью видео"
+          />
+          <video class="video" preload="auto" muted>
+            <source src="gestures/17-RU-gloating.mp4" type="video/mp4" />
+            Ваш браузер не поддерживает видео.
+          </video>
+        </div>
+        <div class="info">
+          <h3>Россия</h3>
+          <p>
+            злорадство;<br />
+            хаха
+          </p>
+        </div>
+      </div>
+      <!--  -->
+
+      <div class="video-card always-visible" data-country="Италия">
+        <div class="video-container">
+          <img
+            class="poster"
+            src="preview/11-IT-Perfect.jpg"
+            alt="Превью видео"
+          />
+          <video class="video" preload="auto" muted>
+            <source src="gestures/11-IT-Perfect.mp4" type="video/mp4" />
+            Ваш браузер не поддерживает видео.
+          </video>
+        </div>
+        <div class="info">
+          <h3>Италия</h3>
+          <p>
+            Идеальный;<br />
+            Отличный
+          </p>
+        </div>
+      </div>
+      <!--  -->
+      <div class="video-card always-visible" data-country="Франция">
+        <div class="video-container">
+          <img
+            class="poster"
+            src="preview/32-FR-Delicious.jpg"
+            alt="Превью видео"
+          />
+          <video class="video" preload="auto" muted>
+            <source src="gestures/32-FR-Delicious.mp4" type="video/mp4" />
+            Ваш браузер не поддерживает видео.
+          </video>
+        </div>
+        <div class="info">
+          <h3>Франция</h3>
+          <p>Описание жеста в России.</p>
+        </div>
+      </div>
+      <!--  -->
+      <div class="video-card always-visible" data-country="Франция">
+        <div class="video-container">
+          <img
+            class="poster"
+            src="preview/28-FR-Sb is drunk.jpg"
+            alt="Превью видео"
+          />
+          <video class="video" preload="auto" muted>
+            <source src="gestures/28-FR-Sb is drunk.mp4" type="video/mp4" />
+            Ваш браузер не поддерживает видео.
+          </video>
+        </div>
+        <div class="info">
+          <h3>Франция</h3>
+          <p>Описание жеста в России.</p>
+        </div>
+      </div>
+      <!--  -->
+      <div class="video-card always-visible" data-country="Великобритания">
+        <div class="video-container">
+          <img
+            class="poster"
+            src="preview/29-GB-Expensive.jpg"
+            alt="Превью видео"
+          />
+          <video class="video" preload="auto" muted>
+            <source src="gestures/29-GB-Expensive.mp4" type="video/mp4" />
+            Ваш браузер не поддерживает видео.
+          </video>
+        </div>
+        <div class="info">
+          <h3>Великобритания</h3>
+          <p>
+            Дорого;<br />
+            деньги
+          </p>
+        </div>
+      </div>
+
+      <!--  -->
+      <div class="video-card always-visible" data-country="Италия">
+        <div class="video-container">
+          <img
+            class="poster"
+            src="preview/5-IT-I don't care.jpg"
+            alt="Превью видео"
+          />
+          <video class="video" preload="auto" muted>
+            <source src="gestures/5-IT-I don't care.mp4" type="video/mp4" />
+            Ваш браузер не поддерживает видео.
+          </video>
+        </div>
+        <div class="info">
+          <h3>Италия</h3>
+          <p>Мне все равно.</p>
+        </div>
+      </div>
+      <!--  -->
+      <div class="video-card always-visible" data-country="Россия">
+        <div class="video-container">
+          <img
+            class="poster"
+            src="preview/4-RU-I don't know.jpg"
+            alt="Превью видео"
+          />
+          <video class="video" preload="auto" muted>
+            <source src="gestures/4-RU-I don't know.mp4" type="video/mp4" />
+            Ваш браузер не поддерживает видео.
+          </video>
+        </div>
+        <div class="info">
+          <h3>Россия</h3>
+          <p>
+            Я не знаю;<br />
+            Не имею представления
+          </p>
+        </div>
+      </div>
+      <!--  -->
+
+      <div class="video-card hidden" data-country="Россия">
+        <div class="video-container">
+          <img class="poster" src="preview/1-RU-Yes.jpg" alt="Превью видео" />
+          <video class="video" preload="auto" muted>
+            <source src="gestures/russia/1-RU-Yes.mp4" type="video/mp4" />
+            Ваш браузер не поддерживает видео.
+          </video>
+        </div>
+        <div class="info">
+          <h3>Россия</h3>
+          <p>
+            да ;<br />
+            я согласен
+          </p>
+        </div>
+      </div>
+      <!--  -->
+
+      <div class="video-card hidden" data-country="Россия">
+        <div class="video-container">
+          <img
+            class="poster"
+            src="preview/18-RU-Are you crazy-_1.jpg "
+            alt="Превью видео"
+          />
+          <video class="video" preload="auto" muted>
+            <source
+              src="gestures/18-RU-Are you crazy-_1.mp4"
+              type="video/mp4"
+            />
+            Ваш браузер не поддерживает видео.
+          </video>
+        </div>
+        <div class="info">
+          <h3>Россия</h3>
+          <p>Вы с ума сошли?!</p>
+        </div>
+      </div>
+      <!--  -->
+
+      <div class="video-card hidden" data-country="Россия">
+        <div class="video-container">
+          <img
+            class="poster"
+            src="preview/27-RU-I've had enough2.jpg"
+            alt="Превью видео"
+          />
+          <video class="video" preload="auto" muted>
+            <source
+              src="gestures/russia/27-RU-I've had enough2.mp4"
+              type="video/mp4"
+            />
+            Ваш браузер не поддерживает видео.
+          </video>
+        </div>
+        <div class="info">
+          <h3>Россия</h3>
+          <p>
+            С меня хватит;<br />
+            раздраженный
+          </p>
+        </div>
+      </div>
+      <!--  -->
+
+      <div class="video-card hidden" data-country="Россия">
+        <div class="video-container">
+          <img
+            class="poster"
+            src="preview/9-RU-Perfect.jpg"
+            alt="Превью видео"
+          />
+          <video class="video" preload="auto" muted>
+            <source src="gestures/russia/9-RU-Perfect.mp4" type="video/mp4" />
+            Ваш браузер не поддерживает видео.
+          </video>
+        </div>
+        <div class="info">
+          <h3>Россия</h3>
+          <p>
+            Идеально;<br />
+            Отлично
+          </p>
+        </div>
+      </div>
+      <!--  -->
+
+      <div class="video-card hidden" data-country="Россия">
+        <div class="video-container">
+          <img class="poster" src="preview/2-RU-No.jpg" alt="Превью видео" />
+          <video class="video" preload="auto" muted>
+            <source src="gestures/russia/2-RU-No.mp4" type="video/mp4" />
+            Ваш браузер не поддерживает видео.
+          </video>
+        </div>
+        <div class="info">
+          <h3>Россия</h3>
+          <p>
+            Нет;<br />
+            я не согласен
+          </p>
+        </div>
+      </div>
+      <!--  -->
+
+      <div class="video-card hidden" data-country="Россия">
+        <div class="video-container">
+          <img
+            class="poster"
+            src="preview/30-RU-Promised.jpg"
+            alt="Превью видео"
+          />
+          <video class="video" preload="auto" muted>
+            <source src="gestures/russia/30-RU-Promised.mp4" type="video/mp4" />
+            Ваш браузер не поддерживает видео.
+          </video>
+        </div>
+        <div class="info">
+          <h3>Россия</h3>
+          <p>
+            Обещано;<br />
+            Я даю тебе за это свой зуб
+          </p>
+        </div>
+      </div>
+      <!--  -->
+
+      <div class="video-card hidden" data-country="Великобритания">
+        <div class="video-container">
+          <img
+            class="poster"
+            src="preview/british/13-GB-Fingers crosed.jpg"
+            alt="Превью видео"
+          />
+          <video class="video" preload="auto" muted>
+            <source
+              src="gestures/great-britan/13-GB-Fingers crosed.mp4"
+              type="video/mp4"
+            />
+            Ваш браузер не поддерживает видео.
+          </video>
+        </div>
+        <div class="info">
+          <h3>Великобритания</h3>
+          <p>
+            Удачи!;<br />
+            Пальцы скрещены
+          </p>
+        </div>
+      </div>
+      <!--  -->
+
+      <div class="video-card hidden" data-country="Великобритания">
+        <div class="video-container">
+          <img
+            class="poster"
+            src="preview/british/10-GB-Peace.jpg"
+            alt="Превью видео"
+          />
+          <video class="video" preload="auto" muted>
+            <source
+              src="gestures/great-britan/10-GB-Peace.mp4"
+              type="video/mp4"
+            />
+            Ваш браузер не поддерживает видео.
+          </video>
+        </div>
+        <div class="info">
+          <h3>Великобритания</h3>
+          <p>Победа</p>
+        </div>
+      </div>
+      <!--  -->
+      <div class="video-card hidden" data-country="Великобритания">
+        <div class="video-container">
+          <img
+            class="poster"
+            src="preview/british/12-GB-Perfect.jpg"
+            alt="Превью видео"
+          />
+          <video class="video" preload="auto" muted>
+            <source
+              src="gestures/great-britan/12-GB-Perfect.mp4"
+              type="video/mp4"
+            />
+            Ваш браузер не поддерживает видео.
+          </video>
+        </div>
+        <div class="info">
+          <h3>Великобритания</h3>
+          <p>
+            Идеально;<br />
+            Отлично
+          </p>
+        </div>
+      </div>
+      <!--  -->
+      <div class="video-card hidden" data-country="Великобритания">
+        <div class="video-container">
+          <img
+            class="poster"
+            src="preview/british/20-GB-Are you crazy-.jpg"
+            alt="Превью видео"
+          />
+          <video class="video" preload="auto" muted>
+            <source
+              src="gestures/great-britan/20-GB-Are you crazy-.mp4"
+              type="video/mp4"
+            />
+            Ваш браузер не поддерживает видео.
+          </video>
+        </div>
+        <div class="info">
+          <h3>Великобритания</h3>
+          <p>Вы с ума сошли?!</p>
+        </div>
+      </div>
+      <!--  -->
+      <div class="video-card hidden" data-country="Великобритания">
+        <div class="video-container">
+          <img
+            class="poster"
+            src="preview/british/24-GB-I didn't understand.jpg"
+            alt="Превью видео"
+          />
+          <video class="video" preload="auto" muted>
+            <source
+              src="gestures/great-britan/24-GB-I didn't understand.mp4"
+              type="video/mp4"
+            />
+            Ваш браузер не поддерживает видео.
+          </video>
+        </div>
+        <div class="info">
+          <h3>Великобритания</h3>
+          <p>
+            Кто-то ничего не понял;<br />
+            я не понял
+          </p>
+        </div>
+      </div>
+      <!--  -->
+
+      <div class="video-card hidden" data-country="Великобритания">
+        <div class="video-container">
+          <img
+            class="poster"
+            src="preview/british/25-GB-Drinking.jpg"
+            alt="Превью видео"
+          />
+          <video class="video" preload="auto" muted>
+            <source
+              src="gestures/great-britan/25-GB-Drinking.mp4"
+              type="video/mp4"
+            />
+            Ваш браузер не поддерживает видео.
+          </video>
+        </div>
+        <div class="info">
+          <h3>Великобритания</h3>
+          <p>
+            Кто-то пьян;<br />
+            Хотите выпить?
+          </p>
+        </div>
+      </div>
+      <!--  -->
+
+      <div class="video-card hidden" data-country="Франция">
+        <div class="video-container">
+          <img
+            class="poster"
+            src="preview/francais/10-FR-Zero.jpg"
+            alt="Превью видео"
+          />
+          <video class="video" preload="auto" muted>
+            <source src="gestures/france/10-FR-Zero.mp4" type="video/mp4" />
+            Ваш браузер не поддерживает видео.
+          </video>
+        </div>
+        <div class="info">
+          <h3>Франция</h3>
+          <p>
+            Ноль;<br />
+            ты ничто
+          </p>
+        </div>
+      </div>
+      <!--  -->
+
+      <div class="video-card hidden" data-country="Франция">
+        <div class="video-container">
+          <img
+            class="poster"
+            src="preview/francais/31-FR-I knew it.jpg"
+            alt="Превью видео"
+          />
+          <video class="video" preload="auto" muted>
+            <source
+              src="gestures/france/31-FR-I knew it.mp4"
+              type="video/mp4"
+            />
+            Ваш браузер не поддерживает видео.
+          </video>
+        </div>
+        <div class="info">
+          <h3>Франция</h3>
+          <p>
+            Я знал это;<br />
+            У меня хорошее чутье
+          </p>
+        </div>
+      </div>
+      <!--  -->
+      <div class="video-card hidden" data-country="Франция">
+        <div class="video-container">
+          <img
+            class="poster"
+            src="preview/francais/33-FR-I told you so.jpg"
+            alt="Превью видео"
+          />
+          <video class="video" preload="auto" muted>
+            <source
+              src="gestures/france/33-FR-I told you so.mp4"
+              type="video/mp4"
+            />
+            Ваш браузер не поддерживает видео.
+          </video>
+        </div>
+        <div class="info">
+          <h3>Франция</h3>
+          <p>Я же тебе говорил!</p>
+        </div>
+      </div>
+      <!--  -->
+      <div class="video-card hidden" data-country="Франция">
+        <div class="video-container">
+          <img
+            class="poster"
+            src="preview/francais/35-FR-Are you scared-.jpg"
+            alt="Превью видео"
+          />
+          <video class="video" preload="auto" muted>
+            <source
+              src="gestures/france/35-FR-Are you scared-.mp4"
+              type="video/mp4"
+            />
+            Ваш браузер не поддерживает видео.
+          </video>
+        </div>
+        <div class="info">
+          <h3>Франция</h3>
+          <p>
+            Ты боишься?;<br />
+            страх
+          </p>
+        </div>
+      </div>
+      <!--  -->
+      <div class="video-card hidden" data-country="Франция">
+        <div class="video-container">
+          <img
+            class="poster"
+            src="preview/francais/36-FR-It won't happen.jpg"
+            alt="Превью видео"
+          />
+          <video class="video" preload="auto" muted>
+            <source
+              src="gestures/france/36-FR-It won't happen.mp4"
+              type="video/mp4"
+            />
+            Ваш браузер не поддерживает видео.
+          </video>
+        </div>
+        <div class="info">
+          <h3>Франция</h3>
+          <p>
+            Этого не случится;<br />
+            забудь.
+          </p>
+        </div>
+      </div>
+      <!--  -->
+      <div class="video-card hidden" data-country="Франция">
+        <div class="video-container">
+          <img
+            class="poster"
+            src="preview/francais/37-FR-Let's go.jpg"
+            alt="Превью видео"
+          />
+          <video class="video" preload="auto" muted>
+            <source src="gestures/france/37-FR-Let's go.mp4" type="video/mp4" />
+            Ваш браузер не поддерживает видео.
+          </video>
+        </div>
+        <div class="info">
+          <h3>Франция</h3>
+          <p>
+            Пойдем;<br />
+            давай уйдем
+          </p>
+        </div>
+      </div>
+      <!--  -->
+      <div class="video-card hidden" data-country="Франция">
+        <div class="video-container">
+          <img
+            class="poster"
+            src="preview/francais/20-FR-I don't believe you.jpg"
+            alt="Превью видео"
+          />
+          <video class="video" preload="auto" muted>
+            <source
+              src="gestures/france/20-FR-I don't believe you.mp4"
+              type="video/mp4"
+            />
+            Ваш браузер не поддерживает видео.
+          </video>
+        </div>
+        <div class="info">
+          <h3>Франция</h3>
+          <p>
+            Пойдем;<br />
+            давай уйдем
+          </p>
+        </div>
+      </div>
+    </section>
+    <script src="app.js"></script>
+  </body>
+</html>

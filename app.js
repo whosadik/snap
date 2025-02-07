@@ -178,3 +178,26 @@ document.addEventListener("DOMContentLoaded", function () {
     this.classList.toggle("active"); // Переключаем класс для показа списка стран
   });
 });
+
+function playVideoMobile(card) {
+  let video = card.querySelector(".video");
+
+  if (window.innerWidth <= 768) {
+    // Запускаем видео в полноэкранном режиме на мобильных
+    if (video.requestFullscreen) {
+      video.requestFullscreen();
+    } else if (video.webkitRequestFullscreen) {
+      video.webkitRequestFullscreen();
+    } else if (video.msRequestFullscreen) {
+      video.msRequestFullscreen();
+    }
+
+    video.play();
+  } else {
+    // Для десктопов просто играем видео
+    if (video.paused) {
+      video.play();
+      card.classList.add("playing");
+    }
+  }
+}

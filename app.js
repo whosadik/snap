@@ -663,7 +663,7 @@ document.addEventListener("DOMContentLoaded", function () {
       loadQuestion();
     } else {
       // Отображаем итоговый счёт после прохождения 5 вопросов
-      resultText.textContent = `🎉 Квиз завершен! Ваш результат: ${score} из 5`;
+      resultText.textContent = `🎉 Тест завершен! Ваш результат: ${score} из 5`;
       nextBtn.textContent = "Пройти заново";
       nextBtn.onclick = startQuiz;
     }

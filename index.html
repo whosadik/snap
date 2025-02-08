@@ -74,8 +74,8 @@
           <li class="company-btn"></li>
 
           <li><a href="/">Главная</a></li>
-          <li><a href="/">О нас</a></li>
-          <li><a href="/">Контакты</a></li>
+          <li><a href="about.html">О нас</a></li>
+          <li><a href="contacts.html">Контакты</a></li>
         </ul>
         <ul class="nav-buttons nav-menu">
           <li><button>Login</button></li>
@@ -247,7 +247,7 @@
         <div class="info">
           <h3>Россия</h3>
           <p>
-            злорадство;<br />
+            дразнить;<br />
             хаха
           </p>
         </div>
@@ -354,8 +354,10 @@
       <div
         class="video-card always-visible"
         data-country="Италия"
-        data-gesture="Мне все равно"
+        data-gesture="Непредставляю"
       >
+        <div class="important-badge">⭐</div>
+
         <div class="video-container">
           <img
             class="poster"
@@ -1197,8 +1199,10 @@
       <div
         class="video-card hidden"
         data-country="Португалия"
-        data-gesture="Не имею представления; Я не знаю"
+        data-gesture="Непредставляю"
       >
+        <div class="important-badge">⭐</div>
+
         <div class="video-container">
           <img
             class="poster"
@@ -1338,6 +1342,69 @@
         </div>
       </div>
     </section>
+
+    <section class="prover">
+      <div class="prover-content">
+        <h1 class="prover-header">Проверь свои знания!</h1>
+        <p>Начни тест и узнай, насколько хорошо ты усвоил новые знания.</p>
+        <div class="start-quiz-container">
+          <button id="gesture-start-quiz-btn">Начать квиз</button>
+        </div>
+
+        <!-- Модальное окно с квизом -->
+        <div id="gesture-quiz-modal" class="gesture-modal">
+          <div class="gesture-modal-content">
+            <span class="gesture-close" id="gesture-close-quiz">&times;</span>
+            <div id="gesture-quiz-container">
+              <h2 id="gesture-question-text">Вопрос...</h2>
+
+              <!-- Новый контейнер для видео -->
+              <div id="gesture-media"></div>
+
+              <div id="gesture-answers">
+                <button
+                  class="gesture-answer"
+                  onclick="checkGestureAnswer(this)"
+                  data-correct="false"
+                ></button>
+                <button
+                  class="gesture-answer"
+                  onclick="checkGestureAnswer(this)"
+                  data-correct="false"
+                ></button>
+                <button
+                  class="gesture-answer"
+                  onclick="checkGestureAnswer(this)"
+                  data-correct="false"
+                ></button>
+                <button
+                  class="gesture-answer"
+                  onclick="checkGestureAnswer(this)"
+                  data-correct="false"
+                ></button>
+              </div>
+
+              <p id="gesture-result"></p>
+              <button
+                id="gesture-next-btn"
+                onclick="nextGestureQuestion()"
+                style="display: none"
+              >
+                Следующий вопрос
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <div class="footer-content">
+        <p>&copy; 2025 Snap</p>
+      </div>
+    </footer>
+
+    <!-- Кнопка для запуска квиза -->
 
     <!-- Модальное окно -->
     <div id="gestureModal" class="modal">

@@ -358,6 +358,18 @@ const gestureVariations = {
       desc: "Вы умны; Это умно!",
     },
   ],
+  Непредставляю: [
+    {
+      country: "Португалия",
+      img: "preview/Portuges/4-PG-I have no idea.jpg",
+      desc: "Не имею представления; Не знаю",
+    },
+    {
+      country: "Италия",
+      img: "preview/5-IT-I don't care.jpg",
+      desc: "Мне все равно.",
+    },
+  ],
 };
 document.addEventListener("DOMContentLoaded", function () {
   const modal = document.getElementById("gestureModal");
@@ -402,4 +414,258 @@ document.addEventListener("DOMContentLoaded", function () {
       </div>
     `;
   }
+});
+document.addEventListener("DOMContentLoaded", function () {
+  const quizModal = document.getElementById("gesture-quiz-modal");
+  const openQuizBtn = document.getElementById("gesture-start-quiz-btn");
+  const closeQuizBtn = document.getElementById("gesture-close-quiz");
+  const questionText = document.getElementById("gesture-question-text");
+  const answersContainer = document.getElementById("gesture-answers");
+  const resultText = document.getElementById("gesture-result");
+  const nextBtn = document.getElementById("gesture-next-btn");
+  const mediaContainer = document.getElementById("gesture-media");
+
+  let currentQuestionIndex = 0;
+  let shuffledQuestions = [];
+  let score = 0; // Очки
+  let hasAnswered = false; // Флаг, чтобы избежать повторных ответов
+
+  // Большой список вопросов (будет выбрано только 5 случайных)
+  const questions = [
+    {
+      question: "Что означает этот жест?(Россия)",
+      video: "gestures/russia/27-RU-I've had enough2.mp4",
+      answers: ["Привет", "До свидания", "Отлично", "С меня хватит"],
+      correct: 3,
+    },
+    {
+      question: "Какой жест показан в видео?(Россия)",
+      video: "gestures/russia/1-RU-Yes.mp4",
+      answers: ["Да", "Внимание", "Нет", "Не знаю"],
+      correct: 0,
+    },
+    {
+      question: "Какой смысл этого жеста?(Россия)",
+      video: "gestures/17-RU-gloating.mp4",
+      answers: ["Согласие", "Угроза", "Шутка", "Дразнить"],
+      correct: 3,
+    },
+    {
+      question: "Как используется этот жест?(Россия)",
+      video: "gestures/russia/30-RU-Promised.mp4",
+      answers: ["Приветствие", "Обещано", "Оскорбление", "Знак уважения"],
+      correct: 1,
+    },
+    {
+      question: "Какой смысл этого жеста?(Великобритания)",
+      video: "gestures/21-GB-Don't be nosy.mp4 ",
+      answers: ["Радость", "Оскорбление", "Это не твое дело", "Что-то не так"],
+      correct: 2,
+    },
+    {
+      question: "Этот жест используется в какой стране?",
+      video: "gestures/11-GB-insult.mp4",
+      answers: ["Италия", "Великобритания", "Франция", "Россия"],
+      correct: 1,
+    },
+    {
+      question: "Что означает этот жест?(Италия)",
+      video: "gestures/11-IT-Perfect.mp4",
+      answers: ["Привет", "До свидания", "Отлично", "С меня хватит"],
+      correct: 2,
+    },
+    {
+      question: "Что означает этот жест?(Франция)",
+      video: "gestures/france/10-FR-Zero.mp4",
+      answers: ["Вкусно", "Радость", "Отлично", "Ты ничто"],
+      correct: 3,
+    },
+    {
+      question: "Что означает этот жест?(Франция)",
+      video: "gestures/france/31-FR-I knew it.mp4",
+      answers: [
+        "Это не твое дело",
+        "Я знал это",
+        "Оскорбление",
+        "С меня хватит",
+      ],
+      correct: 1,
+    },
+    {
+      question: "Что означает этот жест?(Франция)",
+      video: "gestures/france/31-FR-I knew it.mp4",
+      answers: [
+        "Это не твое дело",
+        "Я знал это",
+        "Оскорбление",
+        "С меня хватит",
+      ],
+      correct: 1,
+    },
+    {
+      question: "Что означает этот жест?(Франция)",
+      video: "gestures/france/37-FR-Let's go.mp4",
+      answers: ["Пойдем", "С меня хватит", "Это не твое дело", "Я знал это"],
+      correct: 0,
+    },
+
+    {
+      question: "Что означает этот жест?(Италия)",
+      video: "gestures/italy/18-IT-What do you want.mp4",
+      answers: ["Что же ты хочешь", "Обещано", "Оскорбление", "Знак уважения"],
+      correct: 0,
+    },
+    {
+      question: "Что означает этот жест?(Италия)",
+      video: "gestures/italy/30-IT-Smart.mp4",
+      answers: ["Обещано", "Я знал это", "Оскорбление", "Это умно"],
+      correct: 3,
+    },
+
+    {
+      question: "Что означает этот жест?(Италия)",
+      video: "gestures/italy/23-IT-Crowded place (1).mp4",
+      answers: ["Пойдем", "Многолюдное место", "С меня хватит", "Это умно"],
+      correct: 1,
+    },
+    {
+      question: "Что означает этот жест?(Португалия)",
+      video: "gestures/Portuges/8-PG-Good luck.mp4",
+      answers: ["Ты получишь что-то", "Вкусно", "Удачи", "Ничего"],
+      correct: 2,
+    },
+
+    {
+      question: "Что означает этот жест?(Португалия)",
+      video: "gestures/italy/38-IT-You're in trouble.mp4",
+      answers: ["У тебя проблемы!", "Вкусно", "Удачи", "Я люблю тебя"],
+      correct: 0,
+    },
+    {
+      question: "Что означает этот жест?(Португалия)",
+      video: "gestures/Portuges/4-PG-I have no idea.mp4",
+      answers: [
+        "У тебя проблемы!",
+        "Вкусно",
+        "Не имею представления",
+        "Я люблю тебя",
+      ],
+      correct: 2,
+    },
+    {
+      question: "Что означает этот жест?(Болгария)",
+      video: "gestures/bolgar/2-BU-No.mp4",
+      answers: ["Да", "Нет", "Не знаю", "Вкусно"],
+      correct: 1,
+    },
+    {
+      question: "Что означает этот жест?(Болгария)",
+      video: "gestures/bolgar/1-1-BU-Yes2.mp4",
+      answers: ["Да", "Нет", "Не знаю", "Вкусно"],
+      correct: 0,
+    },
+    {
+      question: "Что означает этот жест?(Болгария)",
+      video: "gestures/bolgar/18-You're stupid.mp4",
+      answers: ["Удачи", "Нет", "Не знаю", "Ты глупый"],
+      correct: 0,
+    },
+  ];
+
+  function getRandomQuestions(allQuestions, count) {
+    const shuffled = [...allQuestions].sort(() => Math.random() - 0.5);
+    return shuffled.slice(0, count);
+  }
+
+  openQuizBtn.addEventListener("click", function () {
+    quizModal.style.display = "block";
+    startQuiz();
+  });
+
+  closeQuizBtn.addEventListener("click", function () {
+    quizModal.style.display = "none";
+  });
+
+  window.addEventListener("click", function (event) {
+    if (event.target === quizModal) {
+      quizModal.style.display = "none";
+    }
+  });
+
+  function startQuiz() {
+    shuffledQuestions = getRandomQuestions(questions, 5); // Выбираем 5 случайных вопросов
+    currentQuestionIndex = 0;
+    score = 0; // Сбрасываем очки перед началом квиза
+    hasAnswered = false;
+    loadQuestion();
+  }
+
+  function loadQuestion() {
+    if (currentQuestionIndex >= shuffledQuestions.length) return;
+
+    hasAnswered = false; // Сбрасываем флаг на новый вопрос
+
+    const question = shuffledQuestions[currentQuestionIndex];
+    questionText.textContent = question.question;
+
+    // Очищаем контейнер перед загрузкой нового видео
+    mediaContainer.innerHTML = "";
+
+    // Создаём тег <video> для вопроса
+    const videoElement = document.createElement("video");
+    videoElement.src = question.video;
+    videoElement.controls = true;
+    videoElement.autoplay = true;
+    videoElement.width = 320;
+    mediaContainer.appendChild(videoElement);
+
+    // Генерация кнопок с ответами
+    answersContainer.innerHTML = "";
+    question.answers.forEach((answer, index) => {
+      const button = document.createElement("button");
+      button.classList.add("gesture-answer");
+      button.textContent = answer;
+      button.dataset.correct = index === question.correct;
+      button.onclick = () => checkGestureAnswer(button);
+      answersContainer.appendChild(button);
+    });
+
+    resultText.textContent = "";
+    nextBtn.textContent = "Следующий вопрос";
+    nextBtn.style.display = "none";
+  }
+
+  function checkGestureAnswer(button) {
+    if (hasAnswered) return; // Запрещаем повторный ответ
+
+    hasAnswered = true; // Теперь ответить повторно нельзя
+
+    const isCorrect = button.dataset.correct === "true";
+
+    if (isCorrect) {
+      score += 1; // Добавляем очки за правильный ответ
+    }
+
+    resultText.textContent = isCorrect ? "✅ Правильно!" : "❌ Неправильно!";
+    resultText.style.color = isCorrect ? "green" : "red";
+
+    // Отключаем все кнопки после выбора ответа
+    document.querySelectorAll(".gesture-answer").forEach((btn) => {
+      btn.disabled = true;
+    });
+
+    nextBtn.style.display = "block";
+  }
+
+  nextBtn.addEventListener("click", function () {
+    currentQuestionIndex++;
+    if (currentQuestionIndex < shuffledQuestions.length) {
+      loadQuestion();
+    } else {
+      // Отображаем итоговый счёт после прохождения 5 вопросов
+      resultText.textContent = `🎉 Квиз завершен! Ваш результат: ${score} из 5`;
+      nextBtn.textContent = "Пройти заново";
+      nextBtn.onclick = startQuiz;
+    }
+  });
 });

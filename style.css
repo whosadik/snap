@@ -768,6 +768,68 @@ h2 {
   color: #007bff; /* Синий оттенок при наведении */
 }
 
+#videoPopup,
+#gestureModal {
+  display: none; /* Гарантированно скрываем попапы при загрузке */
+}
+
+/* Попап для мобильных устройств */
+.video-popup {
+  display: none; /* Скрыто по умолчанию */
+  position: fixed;
+  z-index: 1001;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Затемнённый фон */
+  justify-content: center;
+  align-items: center;
+}
+
+.video-popup-content {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.video-popup-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #888;
+}
+
+.video-popup-close:hover {
+  color: black;
+}
+
+#videoPopupTitle {
+  font-size: 24px;
+  line-height: normal;
+}
+
+#videoPopupPlayer {
+  width: 100%;
+  max-height: 300px;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+/* Показываем попап только на мобильных */
+@media screen and (max-width: 768px) {
+  .video-popup {
+    display: flex;
+  }
+}
+
 /* Адаптивность для мобильных */
 @media (max-width: 768px) {
   .site-footer {
@@ -938,5 +1000,74 @@ h2 {
 @media screen and (max-width: 800px) {
   h2 {
     font-size: 3rem;
+  }
+}
+
+/* Общие стили для центрирования элементов */
+.prover {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+    135deg,
+    rgba(250, 250, 250, 1),
+    rgba(230, 230, 230, 1)
+  );
+  border-radius: 12px;
+  padding: 5rem;
+  max-width: 1200px;
+  margin: 5rem auto;
+  text-align: center;
+}
+
+.prover-content {
+  text-align: center;
+  max-width: 600px;
+}
+
+/* Стили для мобильных устройств */
+@media (max-width: 767px) {
+  .prover {
+    flex-direction: column; /* Размещаем элементы в колонку */
+    padding: 2rem; /* Уменьшаем отступы */
+    width: 90%;
+  }
+
+  .prover-content {
+    width: 100%;
+  }
+
+  .prover-header {
+    font-size: 2rem; /* Уменьшаем размер заголовка */
+    line-height: 2.5rem;
+  }
+
+  .prover-content p {
+    font-size: 1rem;
+  }
+
+  .start-quiz-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  #gesture-start-quiz-btn {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+}
+
+/* Стили для планшетов (от 768px до 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .prover {
+    flex-direction: column;
+    padding: 3rem;
+    width: 80%;
+  }
+
+  .prover-content {
+    width: 100%;
   }
 }

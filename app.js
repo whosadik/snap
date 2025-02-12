@@ -669,3 +669,101 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+document.addEventListener("DOMContentLoaded", function () {
+  const videoPopup = document.getElementById("videoPopup");
+  const videoPopupTitle = document.getElementById("videoPopupTitle");
+  const videoPopupPlayer = document.getElementById("videoPopupPlayer");
+  const videoPopupDescription = document.getElementById(
+    "videoPopupDescription"
+  );
+  const closePopup = document.querySelector(".video-popup-close");
+
+  const gestureModal = document.getElementById("gestureModal"); // Попап с пояснением
+  const modalTitle = document.getElementById("modal-title");
+  const modalCardsContainer = document.getElementById("modal-cards-container");
+  const closeModal = document.querySelector(".close");
+
+  let currentGesture = ""; // Запоминаем текущий жест
+
+  document.querySelectorAll(".video-card").forEach((card) => {
+    card.addEventListener("click", function () {
+      if (window.innerWidth <= 768) {
+        const country = this.dataset.country || "Неизвестная страна";
+        const gesture = this.dataset.gesture || "Неизвестный жест";
+        const videoElement = this.querySelector(".video source");
+        const description =
+          this.querySelector(".info p")?.innerText || "Нет описания";
+
+        if (!videoElement) {
+          console.error("Видео не найдено в карточке!");
+          return;
+        }
+
+        const videoSrc = videoElement.src;
+        currentGesture = gesture; // Запоминаем жест
+
+        // Устанавливаем данные в попап
+        videoPopupTitle.textContent = `${country} - ${gesture}`;
+        videoPopupPlayer.src = videoSrc;
+        videoPopupDescription.textContent = description;
+
+        // Показываем попап с видео
+        videoPopup.style.display = "flex";
+
+        // Автоматическое воспроизведение видео
+        videoPopupPlayer.load();
+        videoPopupPlayer
+          .play()
+          .catch((err) => console.error("Ошибка воспроизведения:", err));
+      }
+    });
+  });
+
+  // Закрытие видео-попапа и открытие пояснения, если оно есть
+  closePopup.addEventListener("click", function () {
+    videoPopup.style.display = "none";
+    videoPopupPlayer.pause();
+    videoPopupPlayer.src = ""; // Очищаем источник, чтобы избежать воспроизведения при повторном открытии
+
+    // ✅ Добавляем небольшую задержку (300мс), чтобы видео-попап успел исчезнуть
+    setTimeout(() => {
+      if (currentGesture && gestureVariations[currentGesture]) {
+        modalTitle.textContent = `Другие значения жеста`;
+        modalCardsContainer.innerHTML = "";
+
+        gestureVariations[currentGesture].forEach((variation) => {
+          modalCardsContainer.innerHTML += createCardHTML(variation);
+        });
+
+        // Открываем попап с пояснением
+        gestureModal.style.display = "block";
+      }
+    }, 300);
+  });
+
+  // Закрытие попапа с пояснением
+  closeModal.addEventListener("click", function () {
+    gestureModal.style.display = "none";
+  });
+
+  // Закрытие попапов при клике вне области
+  window.addEventListener("click", function (event) {
+    if (event.target === videoPopup) {
+      videoPopup.style.display = "none";
+      videoPopupPlayer.pause();
+      videoPopupPlayer.src = "";
+    }
+    if (event.target === gestureModal) {
+      gestureModal.style.display = "none";
+    }
+  });
+
+  function createCardHTML(gesture) {
+    return `
+      <div class="modal-card">
+        <img src="${gesture.img}" alt="${gesture.desc}">
+        <p><strong>${gesture.country}:</strong> ${gesture.desc}</p>
+      </div>
+    `;
+  }
+});

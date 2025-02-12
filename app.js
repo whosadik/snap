@@ -703,7 +703,7 @@ document.addEventListener("DOMContentLoaded", function () {
         currentGesture = gesture; // Запоминаем жест
 
         // Устанавливаем данные в попап
-        videoPopupTitle.textContent = `${country} - ${gesture}`;
+        videoPopupTitle.textContent = `${country}`;
         videoPopupPlayer.src = videoSrc;
         videoPopupDescription.textContent = description;
 
@@ -762,7 +762,7 @@ document.addEventListener("DOMContentLoaded", function () {
     return `
       <div class="modal-card">
         <img src="${gesture.img}" alt="${gesture.desc}">
-        <p><strong>${gesture.country}:</strong> ${gesture.desc}</p>
+        <p><strong>${gesture.country}:</strong></p>
       </div>
     `;
   }

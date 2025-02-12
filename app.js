@@ -732,7 +732,7 @@ document.addEventListener("DOMContentLoaded", function () {
     return `
       <div class="modal-card">
         <img src="${gesture.img}" alt="${gesture.desc}">
-        <p><strong>${gesture.country}:</strong></p>
+        <p><strong>${gesture.country}: </strong>${gesture.desc}</p>
       </div>
     `;
   }

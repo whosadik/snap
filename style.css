@@ -25,8 +25,8 @@ body {
   scroll-behavior: smooth;
 }
 body {
-  -ms-overflow-style: none; /* for Internet Explorer, Edge */
-  scrollbar-width: none; /* for Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
   overflow-y: scroll;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
@@ -34,7 +34,7 @@ body {
   background-color: var(--almost-white);
 }
 body::-webkit-scrollbar {
-  display: none; /* for Chrome, Safari, and Opera */
+  display: none;
 }
 .contact-page {
   display: flex;
@@ -47,7 +47,6 @@ body::-webkit-scrollbar {
   padding: 20px;
 }
 
-/* Заголовок */
 .contact-page h1 {
   font-size: 28px;
   margin-bottom: 20px;
@@ -55,7 +54,6 @@ body::-webkit-scrollbar {
   letter-spacing: 2px;
 }
 
-/* Контактные данные */
 .contact-details p {
   font-size: 18px;
   margin: 5px 0;
@@ -63,15 +61,13 @@ body::-webkit-scrollbar {
 }
 
 .contact-details a {
-  color: #007bff; /* Синий цвет для ссылок */
+  color: #007bff;
   text-decoration: none;
 }
 
 .contact-details a:hover {
   text-decoration: underline;
 }
-
-/* Футер */
 
 .about-container {
   display: flex;
@@ -82,7 +78,6 @@ body::-webkit-scrollbar {
   padding: 20px;
 }
 
-/* Вертикальный текст */
 .vertical-text {
   writing-mode: vertical-rl;
   text-orientation: mixed;
@@ -92,19 +87,18 @@ body::-webkit-scrollbar {
   margin-right: 20px;
 }
 
-/* Контент "О нас" */
 .about-content {
   max-width: 800px;
 }
 
 .about-content h1,
 .about-content h2 {
-  color: var(--almost-black); /* Белые заголовки */
+  color: var(--almost-black);
   margin-bottom: 20px;
 }
 
 .about-content p {
-  color: var(--medium-gray); /* Светло-серый текст */
+  color: var(--medium-gray);
   margin-bottom: 15px;
   line-height: 1.6;
 }
@@ -153,20 +147,18 @@ header {
   display: flex;
   flex-direction: row;
   padding: 1.5rem 6rem;
-  position: fixed; /* Теперь фиксированное позиционирование */
-  top: 0; /* Фиксируем сверху */
+  position: fixed;
+  top: 0;
   left: 0;
   width: 100%;
   align-items: flex-start;
   justify-content: space-between;
-  background-color: var(
-    --almost-white
-  ); /* Добавляем фон, чтобы navbar был виден */
-  z-index: 1000; /* Устанавливаем высокий индекс слоя */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Легкая тень для выделения */
+  background-color: var(--almost-white);
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 main {
-  padding-top: 6rem; /* Добавляем отступ сверху, чтобы содержимое не перекрывалось navbar */
+  padding-top: 6rem;
   margin: 0 auto;
 }
 nav {
@@ -249,8 +241,8 @@ header.active .hamburger {
 
 .hidden-features.active,
 .hidden-company.active {
-  display: block; /* Меняем с flex на block */
-  flex-direction: column; /* Оставляем если хотите, чтобы элементы шли вертикально */
+  display: block;
+  flex-direction: column;
   gap: 1rem;
   width: max-content;
   border-radius: 10px;
@@ -365,10 +357,9 @@ h2 {
   transition: var(--transition);
 }
 
-/* Контейнер с карточками */
 .video-cards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 карточки в строке */
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   justify-items: center;
   margin: 20px;
@@ -377,7 +368,6 @@ h2 {
   padding-right: 10rem;
 }
 
-/* Стиль для каждой карточки */
 .video-card {
   position: relative;
   width: 330px;
@@ -397,7 +387,7 @@ h2 {
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden; /* Не даем видео выходить за границы */
+  overflow: hidden;
 }
 
 .video {
@@ -418,7 +408,7 @@ h2 {
 
 .info {
   position: absolute;
-  bottom: -50px; /* Располагаем ниже карточки */
+  bottom: -50px;
   left: 0;
   right: 0;
   background: rgba(0, 0, 0, 0.5);
@@ -435,7 +425,6 @@ h2 {
   letter-spacing: 1px;
 }
 
-/* Эффект при наведении на карточку */
 .video-card:hover {
   transform: scale(1.1);
 }
@@ -446,8 +435,8 @@ h2 {
 
 .video-card:hover .info {
   opacity: 1;
-  transform: translateY(0); /* Сделаем его видимым */
-  bottom: 0; /* Делаем пояснение видимым прямо под карточкой */
+  transform: translateY(0);
+  bottom: 0;
 }
 .modal {
   display: none;
@@ -464,7 +453,7 @@ h2 {
   background-color: white;
   padding: 20px;
   width: 60%;
-  max-width: 600px; /* Делаем шире, но не слишком */
+  max-width: 600px;
   border-radius: 12px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
   text-align: center;
@@ -482,7 +471,7 @@ h2 {
 }
 
 .modal-card img {
-  width: 100px; /* Немного увеличил превью */
+  width: 100px;
   height: auto;
   border-radius: 6px;
 }
@@ -513,7 +502,7 @@ h2 {
   position: absolute;
   top: 10px;
   right: 10px;
-  background: rgba(255, 255, 255, 0.2); /* Лёгкая прозрачность */
+  background: rgba(255, 255, 255, 0.2);
   border: 2px solid #ffd700;
   color: #ffd700;
   padding: 5px 10px;
@@ -523,22 +512,18 @@ h2 {
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
 .video-card {
-  position: relative; /* Чтобы значок правильно позиционировался */
+  position: relative;
 }
 
-/* Адаптивность для экранов меньше 768px */
 @media screen and (max-width: 768px) {
   .modal-content {
     width: 100%;
   }
   .video-cards {
-    grid-template-columns: repeat(
-      auto-fit,
-      minmax(260px, 1fr)
-    ); /* еще меньше колонок */
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   }
   header.active nav {
-    left: 0; /* Меню теперь будет занимать весь экран */
+    left: 0;
     width: 100%;
   }
   .hamburger {
@@ -548,22 +533,20 @@ h2 {
   }
 }
 
-/* --- Основной стиль модального окна --- */
 .gesture-modal {
-  display: none; /* Изначально скрыто */
+  display: none;
   position: fixed;
   z-index: 1000;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.6); /* Затемнение фона */
+  background-color: rgba(0, 0, 0, 0.6);
   justify-content: center;
   align-items: center;
   animation: fadeIn 0.3s ease-in-out;
 }
 
-/* --- Контент модального окна --- */
 .gesture-modal-content {
   background: white;
   padding: 20px;
@@ -576,7 +559,6 @@ h2 {
   animation: slideDown 0.3s ease-in-out;
 }
 
-/* --- Кнопка закрытия --- */
 .gesture-close {
   position: absolute;
   top: 10px;
@@ -590,14 +572,12 @@ h2 {
   color: #000;
 }
 
-/* --- Заголовок вопроса --- */
 #gesture-question-text {
   font-size: 20px;
   font-weight: bold;
   margin-bottom: 15px;
 }
 
-/* --- Изображение жеста --- */
 #gesture-img {
   width: 100%;
   max-height: 200px;
@@ -606,14 +586,12 @@ h2 {
   margin-bottom: 15px;
 }
 
-/* --- Контейнер ответов --- */
 #gesture-answers {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-/* --- Стили кнопок ответа --- */
 .gesture-answer {
   background: #007bff;
   color: white;
@@ -634,14 +612,12 @@ h2 {
   cursor: not-allowed;
 }
 
-/* --- Результат ответа --- */
 #gesture-result {
   font-size: 18px;
   font-weight: bold;
   margin-top: 10px;
 }
 
-/* --- Кнопка "Следующий вопрос" --- */
 #gesture-next-btn {
   display: none;
   background: #28a745;
@@ -659,7 +635,6 @@ h2 {
   background: #218838;
 }
 
-/* Контейнер секции */
 .prover {
   display: flex;
 
@@ -669,24 +644,20 @@ h2 {
     rgba(230, 230, 230, 1)
   );
 
-  border-radius: 12px; /* Закругляем углы */
+  border-radius: 12px;
 
-  align-items: center; /* Выравниваем элементы по вертикали */
-  justify-content: center; /* Картинка и текст располагаются по краям */
+  align-items: center;
+  justify-content: center;
   padding: 10rem;
   max-width: 1200px;
-  margin: 5rem auto; /* Центрируем секцию */
+  margin: 5rem auto;
 }
 
-/* Картинка (слева) */
-
-/* Контейнер с текстом и кнопкой (справа) */
 .prover-content {
-  text-align: center; /* Выравниваем весь текст влево */
+  text-align: center;
   margin-top: 5rem;
 }
 
-/* Заголовок */
 .prover-header {
   font-size: 4.5rem;
   line-height: 5rem;
@@ -696,7 +667,6 @@ h2 {
   margin-bottom: 15px;
 }
 
-/* Описание */
 .prover-content p {
   color: var(--medium-gray);
   font-size: 1.1rem;
@@ -706,9 +676,6 @@ h2 {
   margin-bottom: 2rem;
 }
 
-/* Контейнер для кнопки (фикс для центрирования) */
-
-/* Кнопка */
 #gesture-start-quiz-btn {
   background: #1f1f1f;
   color: white;
@@ -720,22 +687,19 @@ h2 {
   transition: background 0.3s, transform 0.2s;
 }
 
-/* Эффект при наведении */
 #gesture-start-quiz-btn:hover {
   background: #333333;
   transform: scale(1.05);
 }
 
-/* Общий стиль футера */
 .site-footer {
   background: var(--almost-black);
-  color: var(--white); /* Тёмный текст */
+  color: var(--white);
   padding: 20px 50px;
   text-align: center;
-  margin-top: 50px; /* Отступ от контента */
+  margin-top: 50px;
 }
 
-/* Контейнер внутри футера */
 .footer-content {
   display: flex;
   flex-direction: column;
@@ -743,7 +707,6 @@ h2 {
   justify-content: center;
 }
 
-/* Текст */
 .site-footer p {
   color: white;
   font-size: 1.1rem;
@@ -752,13 +715,11 @@ h2 {
   width: 90%;
 }
 
-/* Навигация в футере */
 .footer-nav {
   display: flex;
   gap: 20px;
 }
 
-/* Ссылки в футере */
 .footer-nav a {
   text-decoration: none;
   color: #333;
@@ -766,26 +727,24 @@ h2 {
   transition: color 0.3s;
 }
 
-/* Эффект при наведении */
 .footer-nav a:hover {
-  color: #007bff; /* Синий оттенок при наведении */
+  color: #007bff;
 }
 
 #videoPopup,
 #gestureModal {
-  display: none; /* Гарантированно скрываем попапы при загрузке */
+  display: none;
 }
 
-/* Попап для мобильных устройств */
 .video-popup {
-  display: none; /* Скрыто по умолчанию */
+  display: none;
   position: fixed;
   z-index: 1001;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.7); /* Затемнённый фон */
+  background-color: rgba(0, 0, 0, 0.7);
   justify-content: center;
   align-items: center;
 }
@@ -831,14 +790,12 @@ h2 {
   margin-top: 10px;
 }
 
-/* Показываем попап только на мобильных */
 @media screen and (max-width: 768px) {
   .video-popup {
     display: flex;
   }
 }
 
-/* Адаптивность для мобильных */
 @media (max-width: 768px) {
   .site-footer {
     padding: 20px;
@@ -850,10 +807,9 @@ h2 {
   }
 }
 
-/* Адаптивность для мобильных */
 @media (max-width: 768px) {
   .prover {
-    flex-direction: column; /* В столбец */
+    flex-direction: column;
     text-align: center;
   }
 
@@ -868,11 +824,10 @@ h2 {
   }
 
   .start-quiz-container {
-    justify-content: center; /* На мобилке кнопку центрируем */
+    justify-content: center;
   }
 }
 
-/* --- Анимация появления окна --- */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -891,7 +846,6 @@ h2 {
   }
 }
 
-/* --- Адаптивность (для мобильных) --- */
 @media (max-width: 480px) {
   .gesture-modal-content {
     width: 95%;
@@ -904,7 +858,6 @@ h2 {
   }
 }
 
-/* Адаптивность для экранов меньше 480px */
 @media screen and (max-width: 480px) {
   main {
     padding-top: 7rem;
@@ -914,7 +867,7 @@ h2 {
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 20px;
     justify-items: center;
-    align-items: start; /* Выравниваем карточки сверху */
+    align-items: start;
     margin: 20px;
     padding: 0 1rem;
   }
@@ -1011,7 +964,6 @@ h2 {
   }
 }
 
-/* Общие стили для центрирования элементов */
 .prover {
   display: flex;
   flex-direction: row;
@@ -1034,11 +986,10 @@ h2 {
   max-width: 600px;
 }
 
-/* Стили для мобильных устройств */
 @media (max-width: 767px) {
   .prover {
-    flex-direction: column; /* Размещаем элементы в колонку */
-    padding: 2rem; /* Уменьшаем отступы */
+    flex-direction: column;
+    padding: 2rem;
     width: 90%;
   }
 
@@ -1047,7 +998,7 @@ h2 {
   }
 
   .prover-header {
-    font-size: 2rem; /* Уменьшаем размер заголовка */
+    font-size: 2rem;
     line-height: 2.5rem;
   }
 
@@ -1067,7 +1018,6 @@ h2 {
   }
 }
 
-/* Стили для планшетов (от 768px до 1024px) */
 @media (min-width: 768px) and (max-width: 1024px) {
   .prover {
     flex-direction: column;

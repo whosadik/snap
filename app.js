@@ -5,12 +5,10 @@ const companyBtns = document.querySelectorAll(".company-btn");
 const hiddenFeaturesBtns = document.querySelectorAll(".hidden-features");
 const hiddenCompanyBtns = document.querySelectorAll(".hidden-company");
 
-// Открытие и закрытие меню на мобильных устройствах
 ham.addEventListener("click", function () {
   header.classList.toggle("active");
 });
 
-// Открытие и закрытие скрытых списков для кнопок "Features" и "Company"
 featuresBtns.forEach((button, index) => {
   button.addEventListener("click", function () {
     hiddenFeaturesBtns[index].classList.toggle("active");
@@ -23,7 +21,6 @@ companyBtns.forEach((button, index) => {
   });
 });
 
-// Закрытие скрытых списков при клике вне области меню
 window.addEventListener("click", (e) => {
   if (
     Array.from(hiddenFeaturesBtns).some((btn) =>
@@ -46,19 +43,18 @@ window.addEventListener("click", (e) => {
 const filterLinks = document.querySelectorAll(".hidden-features a");
 const videoCards = document.querySelectorAll(".video-card");
 
-// Слушаем клик на ссылках фильтра
 filterLinks.forEach((link) => {
   link.addEventListener("click", function (e) {
-    e.preventDefault(); // чтобы не было перезагрузки страницы
-    const selectedCountry = this.getAttribute("data-country"); // получаем страну из атрибута
+    e.preventDefault();
+    const selectedCountry = this.getAttribute("data-country");
 
     videoCards.forEach((card) => {
-      const cardCountry = card.getAttribute("data-country"); // страна карточки
-      // Показываем или скрываем карточку в зависимости от выбранной страны
+      const cardCountry = card.getAttribute("data-country");
+
       if (selectedCountry === "Все страны" || selectedCountry === cardCountry) {
-        card.classList.remove("hidden"); // Показываем карточку
+        card.classList.remove("hidden");
       } else {
-        card.classList.add("hidden"); // Скрываем карточку
+        card.classList.add("hidden");
       }
     });
   });
@@ -72,9 +68,9 @@ document.querySelectorAll(".video-card").forEach((card) => {
 
   card.addEventListener("mouseenter", () => {
     isHovering = true;
-    video.currentTime = 0; // Сбрасываем видео на начало
-    poster.style.opacity = "0"; // Скрываем обложку
-    video.style.opacity = "1"; // Показываем видео
+    video.currentTime = 0;
+    poster.style.opacity = "0";
+    video.style.opacity = "1";
 
     if (video.readyState >= 2) {
       video
@@ -96,8 +92,8 @@ document.querySelectorAll(".video-card").forEach((card) => {
   card.addEventListener("mouseleave", () => {
     isHovering = false;
     video.pause();
-    poster.style.opacity = "1"; // Показываем обложку
-    video.style.opacity = "0"; // Скрываем видео
+    poster.style.opacity = "1";
+    video.style.opacity = "0";
   });
 
   video.addEventListener("ended", () => {
@@ -118,26 +114,22 @@ document.addEventListener("DOMContentLoaded", () => {
       e.preventDefault();
       const selectedCountry = this.getAttribute("data-country");
 
-      console.log("Выбрана страна:", selectedCountry); // Проверка в консоли
+      console.log("Выбрана страна:", selectedCountry);
 
-      // Меняем текст кнопки
       countryButton.textContent =
         selectedCountry === "Все страны" ? "Все страны" : selectedCountry;
 
-      // Скрываем все карточки сначала
       allCards.forEach((card) => {
         card.classList.add("hidden");
       });
 
       if (selectedCountry === "Все страны") {
-        // Если выбрано "Все страны", показываем все карточки, включая always-visible
         allCards.forEach((card) => {
           if (card.classList.contains("always-visible")) {
             card.classList.remove("hidden");
           }
         });
       } else {
-        // Если выбрана конкретная страна, показываем только карточки этой страны
         allCards.forEach((card) => {
           if (card.getAttribute("data-country") === selectedCountry) {
             card.classList.remove("hidden");
@@ -149,12 +141,10 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 document.querySelector(".start-journey").addEventListener("click", function () {
-  // Получаем секцию с карточками
   const cardsSection = document.getElementById("cards-section");
 
-  // Прокручиваем страницу, но с небольшой задержкой
   window.scrollTo({
-    top: cardsSection.offsetTop - 100, // 100px выше секции
+    top: cardsSection.offsetTop - 100,
     behavior: "smooth",
   });
 });
@@ -162,20 +152,18 @@ document.addEventListener("DOMContentLoaded", function () {
   const countryButton = document.querySelector(".country-btn");
   const countryLinks = document.querySelectorAll(".hidden-features a");
 
-  // Обработчик для выбора страны
   countryLinks.forEach((link) => {
     link.addEventListener("click", function (e) {
       e.preventDefault();
       const selectedCountry = this.getAttribute("data-country");
-      countryButton.textContent = selectedCountry; // Обновляем текст на кнопке
+      countryButton.textContent = selectedCountry;
       const arrow = countryButton.querySelector(".arrow-icon");
-      countryButton.classList.remove("active"); // Убираем активный класс после выбора страны
+      countryButton.classList.remove("active");
     });
   });
 
-  // Обработчик клика на кнопку для открытия списка стран
   countryButton.addEventListener("click", function () {
-    this.classList.toggle("active"); // Переключаем класс для показа списка стран
+    this.classList.toggle("active");
   });
 });
 
@@ -186,19 +174,15 @@ function playVideoMobile(card) {
     if (video.paused) {
       video.play();
 
-      // Попытка открыть видео в полноэкранном режиме
       if (video.requestFullscreen) {
         video.requestFullscreen();
       } else if (video.webkitRequestFullscreen) {
-        // iPhone, Safari
         video.webkitRequestFullscreen();
       } else if (video.msRequestFullscreen) {
-        // IE/Edge
         video.msRequestFullscreen();
       }
     }
   } else {
-    // Для десктопов видео играет в карточке
     video.play();
   }
 }
@@ -379,7 +363,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   document.querySelectorAll(".video-card").forEach((card) => {
     card.addEventListener("click", function () {
-      const gesture = this.dataset.gesture; // Ищем только по названию жеста
+      const gesture = this.dataset.gesture;
       modalTitle.textContent = `Другие значения жеста`;
       modalCardsContainer.innerHTML = "";
 
@@ -427,10 +411,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   let currentQuestionIndex = 0;
   let shuffledQuestions = [];
-  let score = 0; // Очки
-  let hasAnswered = false; // Флаг, чтобы избежать повторных ответов
+  let score = 0;
+  let hasAnswered = false;
 
-  // Большой список вопросов (будет выбрано только 5 случайных)
   const questions = [
     {
       question: "Что означает этот жест?(Россия)",
@@ -593,9 +576,9 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   function startQuiz() {
-    shuffledQuestions = getRandomQuestions(questions, 5); // Выбираем 5 случайных вопросов
+    shuffledQuestions = getRandomQuestions(questions, 5);
     currentQuestionIndex = 0;
-    score = 0; // Сбрасываем очки перед началом квиза
+    score = 0;
     hasAnswered = false;
     loadQuestion();
   }
@@ -603,15 +586,13 @@ document.addEventListener("DOMContentLoaded", function () {
   function loadQuestion() {
     if (currentQuestionIndex >= shuffledQuestions.length) return;
 
-    hasAnswered = false; // Сбрасываем флаг на новый вопрос
+    hasAnswered = false;
 
     const question = shuffledQuestions[currentQuestionIndex];
     questionText.textContent = question.question;
 
-    // Очищаем контейнер перед загрузкой нового видео
     mediaContainer.innerHTML = "";
 
-    // Создаём тег <video> для вопроса
     const videoElement = document.createElement("video");
     videoElement.src = question.video;
     videoElement.controls = true;
@@ -619,7 +600,6 @@ document.addEventListener("DOMContentLoaded", function () {
     videoElement.width = 320;
     mediaContainer.appendChild(videoElement);
 
-    // Генерация кнопок с ответами
     answersContainer.innerHTML = "";
     question.answers.forEach((answer, index) => {
       const button = document.createElement("button");
@@ -636,20 +616,19 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function checkGestureAnswer(button) {
-    if (hasAnswered) return; // Запрещаем повторный ответ
+    if (hasAnswered) return;
 
-    hasAnswered = true; // Теперь ответить повторно нельзя
+    hasAnswered = true;
 
     const isCorrect = button.dataset.correct === "true";
 
     if (isCorrect) {
-      score += 1; // Добавляем очки за правильный ответ
+      score += 1;
     }
 
     resultText.textContent = isCorrect ? "✅ Правильно!" : "❌ Неправильно!";
     resultText.style.color = isCorrect ? "green" : "red";
 
-    // Отключаем все кнопки после выбора ответа
     document.querySelectorAll(".gesture-answer").forEach((btn) => {
       btn.disabled = true;
     });
@@ -662,7 +641,6 @@ document.addEventListener("DOMContentLoaded", function () {
     if (currentQuestionIndex < shuffledQuestions.length) {
       loadQuestion();
     } else {
-      // Отображаем итоговый счёт после прохождения 5 вопросов
       resultText.textContent = `🎉 Тест завершен! Ваш результат: ${score} из 5`;
       nextBtn.textContent = "Пройти заново";
       nextBtn.onclick = startQuiz;
@@ -678,12 +656,12 @@ document.addEventListener("DOMContentLoaded", function () {
   );
   const closePopup = document.querySelector(".video-popup-close");
 
-  const gestureModal = document.getElementById("gestureModal"); // Попап с пояснением
+  const gestureModal = document.getElementById("gestureModal");
   const modalTitle = document.getElementById("modal-title");
   const modalCardsContainer = document.getElementById("modal-cards-container");
   const closeModal = document.querySelector(".close");
 
-  let currentGesture = ""; // Запоминаем текущий жест
+  let currentGesture = "";
 
   document.querySelectorAll(".video-card").forEach((card) => {
     card.addEventListener("click", function () {
@@ -700,17 +678,14 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         const videoSrc = videoElement.src;
-        currentGesture = gesture; // Запоминаем жест
+        currentGesture = gesture;
 
-        // Устанавливаем данные в попап
         videoPopupTitle.textContent = `${country}`;
         videoPopupPlayer.src = videoSrc;
         videoPopupDescription.textContent = description;
 
-        // Показываем попап с видео
         videoPopup.style.display = "flex";
 
-        // Автоматическое воспроизведение видео
         videoPopupPlayer.load();
         videoPopupPlayer
           .play()
@@ -719,13 +694,11 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Закрытие видео-попапа и открытие пояснения, если оно есть
   closePopup.addEventListener("click", function () {
     videoPopup.style.display = "none";
     videoPopupPlayer.pause();
-    videoPopupPlayer.src = ""; // Очищаем источник, чтобы избежать воспроизведения при повторном открытии
+    videoPopupPlayer.src = "";
 
-    // ✅ Добавляем небольшую задержку (300мс), чтобы видео-попап успел исчезнуть
     setTimeout(() => {
       if (currentGesture && gestureVariations[currentGesture]) {
         modalTitle.textContent = `Другие значения жеста`;
@@ -735,18 +708,15 @@ document.addEventListener("DOMContentLoaded", function () {
           modalCardsContainer.innerHTML += createCardHTML(variation);
         });
 
-        // Открываем попап с пояснением
         gestureModal.style.display = "block";
       }
     }, 300);
   });
 
-  // Закрытие попапа с пояснением
   closeModal.addEventListener("click", function () {
     gestureModal.style.display = "none";
   });
 
-  // Закрытие попапов при клике вне области
   window.addEventListener("click", function (event) {
     if (event.target === videoPopup) {
       videoPopup.style.display = "none";
